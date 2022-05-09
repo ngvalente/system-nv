@@ -1,11 +1,10 @@
 import express from 'express'
+import routers from './routes/index.routes'
 import {PrismaClient} from  '@prisma/client'
+
 const prisma = new PrismaClient()
 const app = express()
-app.get('/', async (req, res)=>{
-    const data = await prisma.user.findMany()
-    return res.json(data)
-})
+app.use('/', routers )
 
 const PORT = process.env.PORT || 3333
 
