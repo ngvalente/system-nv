@@ -11,10 +11,20 @@ datasource db {
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  name  String
-  email String @unique
-  // phone String?
+  id       Int       @id @default(autoincrement())
+  name     String
+  email    String    @unique
+  nickname String    @unique
+  userType String
+  typeUser type_user
+  phone    String    @unique
 
   @@map("users")
+}
+
+enum type_user {
+  client
+  employee
+  admin
+  master
 }
