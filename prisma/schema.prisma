@@ -18,7 +18,6 @@ model User {
   userType String
   typeUser type_user
   phone    String    @unique
-
   @@map("users")
 }
 
