@@ -4,6 +4,8 @@ import {PrismaClient} from  '@prisma/client'
 
 const prisma = new PrismaClient()
 const app = express()
+
+app.use(express.json())
 app.use('/', routers )
 
 const PORT = process.env.PORT || 3333
