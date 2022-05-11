@@ -14,18 +14,7 @@ export default function auth(data: any) {
         subject: String(id),
         expiresIn: 10 // 2 minutos
     })
-    validate(token)
+
     return { status: 200, data: { token } }
-
-}
-
-
-function validate(token: string) {
-    let id
-    verify(token, 'valente', (err, decoded) => {
-        if(err) console.log('Err: ', err.name)
-        id = decoded?.sub
-    })
-    console.log('Usuário logado ',id)
 
 }

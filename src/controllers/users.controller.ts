@@ -18,6 +18,14 @@ export = {
             return res.status(400).send(error)
 
         }
+    },
 
+    async createUser(req: Request, res: Response) {
+        try {
+            const { status, data }: any = await userModules.createUser(req.body)
+            return res.status(status).send(data)
+        } catch (error) {
+            return res.status(400).json(error)
+        }
     }
 }

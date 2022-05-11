@@ -14,5 +14,12 @@ export = {
             return { status: 200, data: data }
         }
         return { status: 204 }
+    },
+
+    async createUser(body:any){
+        const data = await prisma.user.create({data:body})
+        if (data) {
+            return { status: 200, data: data }
+        }
     }
 }
